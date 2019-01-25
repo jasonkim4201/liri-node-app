@@ -103,13 +103,21 @@ const movieThis = () => {
 
 }
 
-const doIt = () => {
+const doIt = (input) => {
   fs.readFile("random.txt", "utf8", (error, data) => {
     if (error) {
       return console.log(error);
     }
-    //make it so it puts read data and makes it into the command
+    //make it so it puts the read data and makes it into the command
     console.log(data);
+    var dataArr = data.split(",");
+    //need to find way to remove extra quotes
+    console.log(dataArr);
+                          //slice begins at [1] and ends at -1
+    console.log(dataArr[1].slice(1, -1));
+    var song = dataArr[1].slice(1, -1);
+    spotifySong(song);
+
   })
 }
 
@@ -122,7 +130,6 @@ const record = () => {
 
 }
 
-//make switch statement for command variable
 switch (command) {
   
   case "concert-this":
