@@ -54,7 +54,8 @@ const spotifySong = () => {
     //It's not stupid if it works okay????
 
     const music = response.tracks.items[0];
-    console.log("Here is some info about the song you entered.")
+    console.log(`\nHere is some info about the song you entered.
+    `);
     console.log(`Artist: ${music.album.artists[0].name}`);
     console.log(`Song name: ${music.name}`);
     console.log(`Spotify link: ${music.album.artists[0].external_urls.spotify}`);
@@ -117,5 +118,7 @@ switch (command) {
   return doIt();
 
   default:
-  return console.log(`Error. Not a proper command.`);
+  return console.log(`Please use the following commands: "concert-this", "spotify-this-song", "movie-this", or "do-what-it-says". 
+  \nEXAMPLE BELOW: 
+  \nnode liri.js concert-this Lady Gaga`);
 }
