@@ -1,10 +1,10 @@
 require("dotenv").config();
 
-var keys = require("./keys.js");
+const keys = require("./keys.js");
 const axios = require("axios");
 const Spotify = require('node-spotify-api');
-var moment = require('moment');
-
+const moment = require('moment');
+var fs = require("fs");
 
 var spotify = new Spotify(keys.spotify);
 
@@ -43,6 +43,7 @@ const concertThis = () => {
     console.log(error);
   });
 
+  record();
 
 }
 
@@ -67,6 +68,8 @@ const spotifySong = () => {
   .catch(function(err) {
     console.log(err);
   });
+
+  record();
 
 }
 
@@ -95,12 +98,29 @@ const movieThis = () => {
     Actors: ${movie.Actors}`);
   })
   .catch((err) => console.log(err));
+
+  record();
+
 }
 
 const doIt = () => {
-  
+  fs.readFile("random.txt", "utf8", (error, data) => {
+    if (error) {
+      return console.log(error);
+    }
+    //make it so it puts read data and makes it into the command
+    console.log(data);
+  })
 }
 
+const record = () => {
+
+  fs.appendFile("log.txt", `\n${command} ${name}`, (error) => {
+    
+    error ? error : console.log("\nYour entry has been logged.");
+  });
+
+}
 
 //make switch statement for command variable
 switch (command) {
