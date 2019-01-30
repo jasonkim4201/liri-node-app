@@ -12,5 +12,8 @@ do-what-it-says test
 do-what-it-says poker face
 do-what-it-says poker face
 do-what-it-says 
-do-what-it-says 
-do-what-it-says 
+
+concert-this Lady Gaga
+spotify-this-song 
+spotify-this-song Sweet Dreams
+movie-this wolf of wall street

@@ -10,11 +10,10 @@ var spotify = new Spotify(keys.spotify);
 
 
 const command = process.argv[2];
-const name = process.argv.splice(3, process.argv.length).join(" ");
+const name = process.argv.splice(3, process.argv.length).join(" ").trim();
 
 const concertThis = () => {
   
-  //GET NAME about name of venue, venue location, and date of event (MM/DD/YYYY)
   //use axios. get function. use for loop to get data
   
 
@@ -28,7 +27,6 @@ const concertThis = () => {
     for (var i = 0; i < search.length; i++) {
       var concertInfo = search[i];
       //moment(stringofcodestuff).format(thestupidwayyouwanttimetoappear);
-      //you're telling me i can't spam emojis on node???
       console.log(name);        
       console.log(`
       ${concertInfo.venue.name}
@@ -47,7 +45,7 @@ const concertThis = () => {
 
 }
 
-const spotifySong = () => {
+var spotifySong = () => {
   
   spotify
   .search({ type: 'track', query: name ? name : "Boulevard of Broken Dreams"})
